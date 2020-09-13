@@ -12,21 +12,34 @@ public class Calendar {
 	
 	public static void main(String[] args) {
 
-		Calendar cal = new Calendar();
 		Scanner scanner = new Scanner(System.in);
 		
 		while(true) {
 			System.out.println("월을 입력하세요.");
+			System.out.printf("> ");
+			
 			int month = scanner.nextInt();
 			
+			// 탈출문
 			if (month == -1) {				
-				System.out.println("Have a nice day!");
+				System.out.println("Bye~");
 				break;			
 			}
 			
-			System.out.printf("%d월은 %d일까지 있습니다.\n", month, cal.getMaxDaysOfMonth(month));
-			
+			// 달력 출력
+			System.out.println("  일     월     화    수    목     금     토");
+			System.out.print("----------------------------");
+			// 1일부터 마지막날까지 숫자 출력
+			for(int i=1; i <= MAX_DAYS[month-1]; i++) {
+				if(i%7==1) { // 7의 배수일때는 줄바꿈
+					System.out.println();	
+				}
+					System.out.printf("%3d ", i); // 간격에 맞춰 3칸 할당							
+			}
+			System.out.println();
+			System.out.println();
 		}
+		
 	}
 
 }
