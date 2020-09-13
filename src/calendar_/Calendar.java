@@ -13,21 +13,20 @@ public class Calendar {
 	public static void main(String[] args) {
 
 		Calendar cal = new Calendar();
-		
-		System.out.println("반복횟수를 입력하세요.");
 		Scanner scanner = new Scanner(System.in);
-		int count = scanner.nextInt();
-		int[] number = new int[12];
 		
-		System.out.println("월을 입력하세요.");
-		for(int i=0; i<count; i++) {
-			number[i] = scanner.nextInt();
+		while(true) {
+			System.out.println("월을 입력하세요.");
+			int month = scanner.nextInt();
+			
+			if (month == -1) {				
+				System.out.println("Have a nice day!");
+				break;			
+			}
+			
+			System.out.printf("%d월은 %d일까지 있습니다.\n", month, cal.getMaxDaysOfMonth(month));
+			
 		}
-		
-		for(int i=0; i<count; i++) {
-			System.out.printf("%d월은 %d일까지 있습니다.\n", number[i], cal.getMaxDaysOfMonth(number[i]));
-		}
-		
 	}
 
 }
